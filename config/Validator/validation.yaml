@@ -1,0 +1,82 @@
+App\Entity\Location:
+  properties:
+    city:
+      - Regex:
+          pattern: '/^[A-z|À-ž|-]+$/'
+          match: true
+          message: 'City name should not contain any numbers or special characters.'
+          groups: ['create', 'edit']
+      - Length:
+          max: 255
+          maxMessage: 'City name should not be longer than {{ limit }} characters.'
+          groups: ['create', 'edit']
+      - NotBlank:
+          message: 'City name should not be blank.'
+          groups: ['create', 'edit']
+    latitude:
+      - Range:
+          min: -90
+          max: 90
+          invalidMessage: 'Latitude should be a number.'
+          notInRangeMessage: 'Latitude should be between {{ min }}  and {{ max }}.'
+          groups: [ 'create', 'edit' ]
+      - NotBlank:
+          message: 'Latitude should not be blank.'
+          groups: [ 'create', 'edit' ]
+    longitude:
+      - Range:
+          min: -180
+          max: 180
+          invalidMessage: 'Longitude should be a number.'
+          notInRangeMessage: 'Longitude should be between {{ min }}  and {{ max }}.'
+          groups: [ 'create', 'edit' ]
+      - NotBlank:
+          message: 'Longitude should not be blank.'
+          groups: [ 'create', 'edit' ]
+
+
+
+App\Entity\Forecast:
+  properties:
+    date:
+      - NotBlank:
+          message: 'Date should not be blank.'
+          groups: [ 'create', 'edit' ]
+    temperature:
+      - Range:
+          min: -30
+          max: 60
+          invalidMessage: 'Temperature should be a number.'
+          notInRangeMessage: 'Temperature should be between {{ min }} and {{ max }} degrees.'
+          groups: [ 'create', 'edit' ]
+      - NotBlank:
+          message: 'Temperature should not be blank.'
+          groups: [ 'create', 'edit' ]
+    humidity:
+      - Range:
+          min: 0
+          max: 100
+          invalidMessage: 'Humidity should be a number.'
+          notInRangeMessage: 'Humidity should be between 0% and 100%.'
+          groups: [ 'create', 'edit' ]
+      - NotBlank:
+          message: 'Humidity should not be blank.'
+          groups: [ 'create', 'edit' ]
+    pressure:
+      - Range:
+          min: 900
+          max: 1100
+          invalidMessage: 'Pressure should be a number.'
+          notInRangeMessage: 'Pressure should be between 900 and 1100 hPa.'
+          groups: [ 'create', 'edit' ]
+      - NotBlank:
+          message: 'Pressure should not be blank.'
+          groups: [ 'create', 'edit' ]
+    weather:
+      - NotBlank:
+          message: 'Description should not be blank.'
+          groups: [ 'create', 'edit' ]
+    location:
+      - NotBlank:
+          message: 'You should choose a city.'
+          groups: [ 'create', 'edit' ]
