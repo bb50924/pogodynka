@@ -58,7 +58,7 @@ class LocationController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_location_edit', methods: ['GET', 'POST'])]
-    #[IsGranted('ROLE_LOCATION_SHOW')]
+    #[IsGranted('ROLE_LOCATION_EDIT')]
     public function edit(Request $request, Location $location, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(LocationType::class, $location,[

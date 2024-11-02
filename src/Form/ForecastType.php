@@ -35,11 +35,11 @@ class ForecastType extends AbstractType
             ->add('weather', ChoiceType::class, [
                 'choices' => [
                     null => null,
-                    'sunny' => 'sunny',
-                    'windy' => 'windy',
-                    'cloudy' => 'cloudy',
-                    'rainy' => 'rainy',
-                    'stormy' => 'stormy',
+                    'sunny' => 'Sunny',
+                    'windy' => 'Windy',
+                    'cloudy' => 'Cloudy',
+                    'rainy' => 'Rainy',
+                    'stormy' => 'Stormy',
                 ],
             ])
             ->add('location', EntityType::class, [
