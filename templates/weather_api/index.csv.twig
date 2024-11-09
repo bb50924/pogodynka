@@ -1,0 +1,4 @@
+city,country,date,temperature,fahrenheit,humidity,pressure,weather
+{% for forecast in forecasts %}
+{{ city }},{{ country }},{{ forecast.date | date('Y-m-d') }},{{ forecast.temperature }},{{ forecast.fahrenheit }},{{ forecast.humidity }},{{ forecast.pressure }},{{ forecast.weather }}
+{% endfor %}

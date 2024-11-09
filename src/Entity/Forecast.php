@@ -78,7 +78,11 @@ class Forecast
     {
         return $this->humidity;
     }
-
+    public function getFahrenheit(): ?string
+    {
+        $fahrenheit=$this->temperature * 9 / 5 + 32;
+        return "$fahrenheit";
+    }
     public function setHumidity(int $humidity): static
     {
         $this->humidity = $humidity;
